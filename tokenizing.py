@@ -1,9 +1,24 @@
-"""importing required libarary
 import nltk
-from nltk import sent_tokenize
-from nltk import word_tokenize
+from nltk import sent_tokenize, word_tokenize
 
 # sentences tokenizing
+var = "Natural language processing, or NLP, combines computational linguistics—rule-based modeling of human language—with statistical. While machine learning models to enable computers and digital devices to recognize, understand and generate text and speech."
+var
+
+from nltk.tokenize import word_tokenize, sent_tokenize
+
+sent = sent_tokenize(var)
+sent
+
+# with for loop
+for i in sent:
+  print(i)
+  print()
+
+word = word_tokenize(var)
+word
+
+# with importing files
 # import file
 text_file = open('/home/tyson/typing practices.txt')
 
@@ -53,52 +68,3 @@ for w in words:
 # list od stop words
 
 from nltk.corpus import stopwords
-
-# list of stopwords
-stopwords = stopwords.words('english')
-# print(stopwords)
-# empty list to clean words
-
-clean_words = []
-for w in words_no_punc:
-    if w not in clean_words:
-        clean_words.append(w)
-print(clean_words)
-print('\n')
-print(len(clean_words))
-
-fdist = FreqDist(clean_words)
-fdist.most_common(10)
-fdist.plot(10)"""
-
-import nltk
-from nltk import sent_tokenize
-from nltk import word_tokenize
-
-text_file = open('/home/tyson/typing practices.txt')
-text = text_file.read()
-# print(text)
-
-sen = sent_tokenize(text)
-# print(sen)
-# print(len(sen))
-
-words = word_tokenize(text)
-# print(words)
-# print(len(words))
-
-from nltk.probability import FreqDist
-fdisk = FreqDist(words)
-fdisk.most_common(10)
-# print(fdisk)
-
-import matplotlib.pyplot as plt
-# fdisk.plot(10)
-
-words_of_punc = []
-for w in words_of_punc:
-    if w.isaplha():
-        words_of_punc.append(w.lower())
-print(words_of_punc)
-
-
